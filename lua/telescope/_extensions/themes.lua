@@ -106,15 +106,7 @@ local function theme_switcher(opts)
 
          if reload_theme(final_theme) then
             if change then
-               -- ask for confirmation to set as default theme
-               local ans = string.lower(vim.fn.input("Set " .. new_theme .. " as default theme ? [y/N] ")) == "y"
-               local_utils.clear_cmdline()
-               if ans then
-                  local_utils.change_theme(current_theme, final_theme)
-               else
-                  -- will be used in restoring nvchad theme var
-                  final_theme = current_theme
-               end
+               local_utils.change_theme(current_theme, final_theme)
             end
          else
             final_theme = current_theme
